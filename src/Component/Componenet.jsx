@@ -7,8 +7,10 @@ const Componenet = ({tikitPromise}) => {
         <div className='max-w-[1200px] mx-auto '>
                 <h1 className='text-2xl font-bold'>Customer Tickets</h1>
             <div className='grid grid-cols-2 gap-5'>
-                {
-                tikitData.map(tikit=><div>
+                { 
+
+                tikitData.map(tikit=><div key={tikit.id}>
+
                     
                     <div className='grid grid-cols-2'>
                         <div className="card w-96 bg-base-100 card-xs shadow-sm">
@@ -38,7 +40,9 @@ const Componenet = ({tikitPromise}) => {
 
                 
         </div>
+        
     );
+    
 };
 
 export default Componenet;
