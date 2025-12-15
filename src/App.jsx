@@ -27,11 +27,16 @@ const handleInprogress = (issue)=>{
 const [selectedTicket, setSelectedTicket] = useState([]);
 
 
+const [ResolvedIssues, setResolvedIssues] = useState([]);
+
+
+
+
 
   return (
     <>
       <Navbar />
-      <InProgress inprogressIssues={inprogressIssues} />
+      <InProgress inprogressIssues={inprogressIssues} ResolvedIssues={ResolvedIssues} />
 
 
 
@@ -40,7 +45,7 @@ const [selectedTicket, setSelectedTicket] = useState([]);
       
 
       <div className="max-w-[1200px] mx-auto mb-20 mt-10">
-        <div className="flex gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-50">
 
           {/* Left Section */}
           <div className="flex-1"> <Suspense fallback={<span className="loading loading-spinner loading-xl"></span>}> <Componenet handleInprogress={handleInprogress} selectedTicket={selectedTicket}  setSelectedTicket={setSelectedTicket} tikitPromise={tikitPromise}></Componenet>
@@ -48,7 +53,8 @@ const [selectedTicket, setSelectedTicket] = useState([]);
 
           {/* Right Section */}
           <div className="w-[400px]">
-            <Complet selectedTicket={selectedTicket} />
+            <Complet selectedTicket={selectedTicket} 
+               setResolvedTicket={setResolvedIssues}  resolvedTicket={ResolvedIssues} />
           </div>
 
         </div>
